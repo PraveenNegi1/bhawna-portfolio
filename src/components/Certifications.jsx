@@ -1,169 +1,244 @@
 "use client";
-import Image from "next/image";
-import React from "react";
 
-const qualifactions = [
-  {
-    image: "/frame1.svg",
-    description: "Online Teaching & Instructional Design",
-  },
+import { CheckCircle, Award, ScrollText } from "lucide-react";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Pagination,
+  Navigation,
+  Autoplay,
+  EffectCoverflow,
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
 
-  {
-    image: "/frame1.svg",
-    description: "Competitive Exam Preparation Techniques",
-  },
-
-  {
-    image: "/frame1.svg",
-    description: "Psychometric Testing & Interview Coaching",
-  },
-
-  {
-    image: "/frame1.svg",
-    description: "Advanced Study Skills for High Achievers",
-  },
-
-  {
-    image: "/frame1.svg",
-    description: "Communication & Soft Skills Development for Students",
-  },
+const certifications = [
+  "Copywriting Course – Gaurav Madaan",
+  "Effective Writing Course – SWAYAM",
+  "Human Resource Training – Tareeqa Global Solutions",
 ];
-const Certifications = () => {
-  return (
-    <>
-      <div>
-        <div className="bg-[#A44924] text-[#FFFFFF]">
-          <div className="hidden lg:block">
-            <div className="flex justify-end pr-20  ">
-              <div
-                style={{
-                  fontFamily: "Satisfy",
-                  boxShadow: "0px 40px 10px 0px #00000026",
-                }}
-                className="text-[50px] w-[413px] h-[310px] bg-[#FFFFFF] space-x-14 space-y-6 pt-10 "
-              >
-                <i className="text-[#000000] pl-10">Qualification</i>
-                <p className="text-[#A44924] text-[24px]">
-                  Bachelor of Science in Physiotherapy
-                  <span className="font-bold text-[26px]">(BPT)</span>
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <div className="flex lg:space-x-6 space-x-4 pt-6 lg:pt-0 lg:px-24 px-12 items-center">
-            <div
-              style={{ fontFamily: "Times New Roman" }}
-              className="lg:text-[50px] text-[24px]"
-            >
-              <i>Certifications</i>
-            </div>
+const achievements = [
+  "Self-published 8+ books",
+  "Written over 1000+ poems",
+  "Worked in short films and documentaries",
+];
 
-            <div className="lg:pt-4  ">
-              <Image
-                src="/frame.svg"
-                className="lg:w-[60px] w-[30px] h-[25px] lg:h-[51px]"
-                width={1000}
-                height={1000}
-                alt=""
-              />
-            </div>
-          </div>
+const images = [
+  "/certifecate/certificate01.jpg",
+  "/certifecate/certificate2.jpg",
+  "/certifecate/certificate3.jpg",
+  "/certifecate/certificate4.jpg",
+  "/certifecate/certificate5.jpg",
+  "/certifecate/certificate6.jpg",
+  "/certifecate/certificate7.jpg",
+  "/certifecate/certificate8.jpg",
+  "/certifecate/certificate9.jpg",
+  "/certifecate/certificate12.jpg",
+];
 
-          <div className="lg:pt-4 pt-3 lg:px-28 px-14">
-            <Image
-              src="/line1.svg"
-              className="w-[213px] h-[30px]"
-              width={1000}
-              height={1000}
-              alt=""
-            />
-          </div>
-
-          <div className="hidden lg:flex flex-wrap justify-evenly pb-28">
-            {qualifactions.map((qualifaction, index) => (
-              <div
-                key={index}
-                className="bg-no-repeat w-[242px]  h-[220px]  lg:mt-10  lg:mx-32  "
-                style={{
-                  backgroundImage: `url(${qualifaction.image})`,
-                }}
-              >
-                <p className="lg:w-[150px] w-[86px] lg:h-[100px] h-[64px] text-center mx-10 pt-12 text-[18px] ">
-                  {qualifaction.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className=" lg:hidden gap-y-6 gap-x-6 grid grid-cols-2 px-7 py-8">
-            {qualifactions.map((qualifaction, index) => (
-              <div key={index} className="object-cover w-[160px]  h-[150px]">
-                <div className="relative">
-                  <img src={qualifaction.image} alt="" />
-                  <div className="absolute inset-0 top-[15%]">
-                    <p className="text-[12px] font-semibold text-center px-8">
-                      {qualifaction.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:hidden flex justify-evenly items-center h-[140px]  bg-[#F3EDE6]">
-          <div>
-            <i className="text-[25px] font-medium">Qualification</i>
-          </div>
-          <div className="w-[126px] text-[12px] text-[#A44924]">
-            <p>
-              Bachelor of Science in Physiotherapy <strong>(BPT)</strong>
-            </p>
-          </div>
-        </div>
-
-        <div className="hidden lg:block">
-          <div className="bg-[#F3EDE6] flex justify-between group ">
-            <p className="text-[#A14622] text-[40px] mx-36 p-10 cursor-pointer">
-              Additional Training
-            </p>
-            <div className="-mt-20 flex justify-end pr-12 gap-10 transition-transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-1000 ease-in-out">
-              <div className="bg-[#C0542A] w-[364px] px-7 py-10 text-[#FFFFFF] text-[20px] border-2 border-white">
-                <p>
-                  Study Strategy <br /> & <br />
-                  Time Management for Board Exams
-                </p>
-              </div>
-              <div className="bg-[#C0542A] w-[364px] px-7 py-10 text-[#FFFFFF] text-[20px] border-2 border-white">
-                <p>
-                  Behavioral Psychology <br />& <br />
-                  Student Motivation Techniques
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:hidden flex-col space-y-6  py-16 bg-[#A44924]">
-          <div>
-            <p className="text-white text-[25px]">Additional Training</p>
-          </div>
-          <div className="border-t-4 border-r-4 border-b-4 bg-[#C0542A] border-white w-full text-white p-6">
-            <p>Study Strategy </p>
-            <p>&</p>
-            <p>Time Management for Board Exams</p>
-          </div>
-            <div className="flex justify-end">
-          <div className="border-t-4 border-l-4 border-b-4 bg-[#C0542A] border-white w-full text-white p-6">
-            <p>Behavioral Psychology </p>
-            <p>&</p>
-            <p>Student Motivation Techniques</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
 };
 
-export default Certifications;
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+export default function CertificationsAchievements() {
+  return (
+    <div className="px-4 sm:px-6 md:px-8 lg:px-16 py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 text-gray-800">
+      <div className="max-w-6xl mx-auto space-y-16">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-8"
+        >
+          <h1 className="lg:text-[40px] text-[20px]  text-[#A44924] mb-4">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#A44924] to-amber-600">
+              Credentials & Accomplishments
+            </span>
+          </h1>
+          <p className="text-gray-600 max-w-2xl mx-auto md:text-[20px]">
+            A collection of my professional certifications and personal
+            achievements that showcase my commitment to growth and excellence.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="space-y-6 md:space-y-8"
+        >
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-center justify-center gap-3 mb-2"
+          >
+            <ScrollText className="text-[#A44924]" size={24} />
+            <h2 className="lg:text-[40px] text-[20px] text-[#A44924]">
+              My Certificates
+            </h2>
+          </motion.div>
+
+          <motion.p
+            variants={fadeInUp}
+            className="text-center text-gray-600 max-w-3xl mx-auto mb-6 md:text-[20px]"
+          >
+            Professional certifications that have enriched my knowledge and
+            expertise in various domains.
+          </motion.p>
+          <div className="mt-6">
+            <Swiper
+              modules={[Pagination, Navigation, Autoplay, EffectCoverflow]}
+              effect="coverflow"
+              coverflowEffect={{
+                rotate: 15,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              navigation
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              loop
+              spaceBetween={10}
+              breakpoints={{
+                320: { slidesPerView: 1, spaceBetween: 10 },
+                480: { slidesPerView: 1.2, spaceBetween: 15 },
+                640: { slidesPerView: 1.5, spaceBetween: 15 },
+                768: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 2.5, spaceBetween: 20 },
+                1280: { slidesPerView: 3, spaceBetween: 25 },
+              }}
+              className="pb-14 max-w-full"
+            >
+              {images.map((src, idx) => (
+                <SwiperSlide key={idx} className="py-4 px-2 sm:px-3 md:px-4">
+                  <motion.div
+                    custom={idx}
+                    variants={fadeInUp}
+                    className="overflow-hidden rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <div className="relative group aspect-[4/3] w-full">
+                      <img
+                        src={src}
+                        alt="Certificate"
+                        className="w-full h-full object-cover object-center"
+                        loading="lazy"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0  p-3 sm:p-4 ">
+                        <p className="text-white text-xs sm:text-sm md:text-base font-medium"></p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+          {/* Certifications */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="space-y-6"
+          >
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-3 mb-2"
+            >
+              <CheckCircle className="text-[#A44924]" size={24} />
+              <h2 className="lg:text-[40px] text-[24px] text-[#A44924]">
+                Certifications
+              </h2>
+            </motion.div>
+
+            <motion.ul variants={staggerContainer} className="space-y-4">
+              {certifications.map((item, index) => (
+                <motion.li
+                  key={index}
+                  variants={fadeInUp}
+                  className="flex items-start gap-3 bg-white p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#A44924]/20"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#A44924]/10 flex items-center justify-center mt-0.5">
+                    <CheckCircle className="text-[#A44924]" size={16} />
+                  </div>
+                  <div>
+                    <span className="md:text-[20px]  font-medium">{item}</span>
+                  </div>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+
+          {/* Achievements */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="space-y-6"
+          >
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-3 mb-2"
+            >
+              <Award className="text-yellow-500" size={24} />
+              <h2 className="lg:text-[40px] text-[24px]   text-[#A44924]">
+                Achievements
+              </h2>
+            </motion.div>
+
+            <motion.ul variants={staggerContainer} className="space-y-4">
+              {achievements.map((item, index) => (
+                <motion.li
+                  key={index}
+                  variants={fadeInUp}
+                  className="flex items-start gap-3 bg-white p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-yellow-400/30"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mt-0.5">
+                    <Award className="text-yellow-500" size={16} />
+                  </div>
+                  <div>
+                    <span className="md:text-[20px]  font-medium">{item}</span>
+                  </div>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}

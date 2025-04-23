@@ -1,223 +1,85 @@
 "use client";
 
-import Image from "next/image";
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
+import { Instagram, Linkedin, Facebook, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
 
-const Contect = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    topic: "",
-    message: "",
-  });
-  const [loading, setLoading] = useState(false);
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/bhavna-ojha-50a5b7232?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    icon: Linkedin,
+    color: "text-blue-600",
+    bg: "hover:bg-blue-50",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/bhavyy_writes?igsh=MTYxdzBpZDJ0OWZneA==",
+    icon: Instagram,
+    color: "text-pink-500",
+    bg: "hover:bg-pink-50",
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/share/18okCsmD7w/",
+    icon: Facebook,
+    color: "text-blue-800",
+    bg: "hover:bg-blue-100",
+  },
+  {
+    name: "Ink and Rhymes",
+    url: "https://notionpress.com/in/read/ink-and-rhymes",
+    icon: BookOpen,
+    color: "text-emerald-600",
+    bg: "hover:bg-emerald-50",
+  },
+];
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-  
-    try {
-      const response = await emailjs.send(
-        "service_403m16w",
-        "template_57edpli",
-        formData,
-        "_gcViyaYmp8cIM5j_"
-      );
-      console.log("SUCCESS!", response);
-      alert("Message sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        topic: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error("FAILED...", error);
-      alert("Failed to send the message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-
+export default function DigitalPresence() {
   return (
-    <>
-      <div className="lg:flex justify-center lg:bg-white bg-[#F3F3F3] items-center lg:m-20 px-6 lg:px-32 pt-16 pb-16 lg:pb-0 gap-32 ">
-       
-
-        <div className="text-[#5F5F5F]  bg-[#F3F3F3] font-tienne ">
-         <div className="text-[44px] bg-[#A14622] text-[#F3F3F3] p-2 text-center">
-          Contact Information
-          </div>
-
-          <div className=" border border-[#A14622] px-6 lg:px-20 py-10 space-y-6 ">
-          
-            <p className="font-bold text-[20px] lg:text-[25px] ">Email</p>
-            <a href="mailto:Noshinaslam2211@gmail.com"
-            className="text-[20px]">
-              noshinaslam2211@gmail.com
-            </a>
-
-            <p className="font-bold text-[20px] lg:text-[25px]">LinkedIn</p>
-            <a href="linkedin.com/in/noshin-aslam-94637b1a4"
-               className="text-[20px]">
-              linkedin.com/in/noshin-aslam-94637b1a4
-            </a>
-
-            <div className="flex flex-wrap gap-3">
-              <p className="font-bold text-[20px] lg:text-[25px]">Website</p>
-              <a
-                href="https://www.boardingadmissions.com/"
-                className="break-words w-full text-[20px] "
-              >
-                https://www.boardingadmissions.com
-              </a>
-            </div>
-
-            <p className="font-bold text-[20px] lg:text-[25px]">
-              Social Media Links
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Image
-                src="/insta.svg"
-                className="w-[30px] h-[30px]    "
-                width={1000}
-                height={1000}
-                alt=""
-              />
-              <p className="font-bold text-[20px] lg:text-[25px]">Instagram:</p>
-              <a href="dr.noshin_aslam" className="break-words w-full text-[20px]">
-                dr.noshin_aslam
-              </a>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Image
-                src="/facebook.svg"
-                className="w-[30px] h-[30px]"
-                width={1000}
-                height={1000}
-                alt=""
-              />
-              <p className="font-bold text-[20px] lg:text-[25px]">Facebook :</p>
-              <a
-                href="https://www.facebook.com/noshin.aslam.1"
-                className="break-words w-full text-[20px] "
-              >
-                https://www.facebook.com/noshin.aslam.1
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className=" md:w-auto p-8 md:p-24 lg:p-12">
-          <div className="text-[#A14622] md:text-[56px]  text-[30px]">
-            Contact me
-          </div>
-          <div className="text-[#A14622] md:text-[32px] text-[20px]">
-            Let&apos;s get in Touch
-          </div>
-
-          <div className="">
-            <div className="grid grid-cols-2 py-12">
-              <div className="">
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-6 text-white md:w-auto w-[320px]"
-                >
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="border bg-transparent border-[#A1462299] outline-none  text-black placeholder-[#A1462299] w-[320px] md:w-[520px] h-[45px] text-[20px] rounded-lg p-3"
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="border bg-transparent border-[#A1462299] outline-none  text-[#000000] placeholder-[#A1462299] rounded-lg w-[320px] md:w-[520px] h-[45px] text-[20px] p-3"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="topic"
-                    placeholder="Topic"
-                    value={formData.topic}
-                    onChange={handleChange}
-                    className="border bg-transparent border-[#A1462299] outline-none  text-[#000000] placeholder-[#A1462299] md:w-[520px] w-[320px] rounded-lg h-[45px] text-[20px] p-3"
-                  />
-                  <textarea
-                    name="message"
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="border bg-transparent resize-none outline-none border-[#A1462299] text-[#000000] placeholder-[#A1462299] md:w-[520px] w-[320px] h-[125px] rounded-lg text-[20px] p-3"
-                    required
-                  ></textarea>
-                  <button
-                    type="submit"
-                    className={`border bg-[#A14622] w-[320px] md:w-[520px] h-[56px] text-[24px] rounded-lg text-[#F3EFE5]
-                      ${loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#a14622d6]"}
-                      `}
-                  >
-                    {loading ? "Submitting..." : "Submit"}
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="lg:flex justify-center items-center lg:p-20 bg-[#F3EDE6] px-6 lg:px-0 pb-12  ">
-        <div className="pt-10">
-          <div className="border-[6px] border-[#000000] text-[#000000] w-full p-6 bg-[#F3F3F3] lg:hidden ">
-            <p className="lg:text-[40px] text-[20px] font-bold font-tienne pl-8">
-              Future Projects & Plans
-            </p>
-          </div>
-          <div className="-mb-16 -ml-10 hidden lg:block">
-            <Image
-              src="/cir.svg"
-              className="w-[115px] h-[118px]    "
-              width={1000}
-              height={1000}
-              alt=""
-            />
-          </div>
-          <div className="bg-[#A14622] text-[#FFFFFF] lg:text-[25px] txt-[16px] w-full p-8  lg:w-[1032px] py-16 lg:py-16 lg:p-20">
-            <p className="font-tienne">
-              I am working on expanding my online platform to offer video
-              courses and workshops that can guide students across various
-              aspects of the boarding school admission process — from exam
-              preparation to emotional intelligence training. I aim to reach
-              more students across India and provide them with the tools they
-              need to succeed in this competitive landscape.
-            </p>
-          </div>
-        </div>
-
-        <div className="border-[6px] border-[#000000] text-[#000000] w-[320px] px-8 mt-10 z-10 -ml-10 bg-[#F3F3F3] hidden lg:block">
-          <p className="text-[40px] font-bold font-tienne">
-            Future Projects & Plans
+    <div className="px-4 py-16 md:px-24 bg-gradient-to-b from-[#A44924] to-[#873d1e] text-[#A44924]">
+      <div className="max-w-4xl mx-auto text-center space-y-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-4"
+        >
+          <h2 className="lg:text-[40px] text-[24px] text-white font-bold">
+            🌐 Digital Presence
+          </h2>
+          <p className="text-white/80 max-w-2xl mx-auto text-sm md:text-base">
+            Connect with me on social platforms and explore my published work online.
           </p>
-        </div>
-      </div>
-    </>
-  );
-};
+        </motion.div>
 
-export default Contect;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+          {socialLinks.map(({ name, url, icon: Icon, color, bg }, index) => (
+            <motion.a
+              key={index}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+              whileTap={{ scale: 0.98 }}
+              className={`flex flex-col items-center justify-center gap-3 p-6 rounded-xl border transition shadow-md bg-white ${bg}`}
+            >
+              <div className={`p-3 rounded-full ${color.replace('text-', 'bg-').replace('-600', '-100').replace('-500', '-100').replace('-800', '-100')}`}>
+                <Icon className={`${color}`} size={24} />
+              </div>
+              <span className="md:text-[18px] text-[15px] font-medium">{name}</span>
+              {name === "Ink and Rhymes" && (
+                <span className="text-xs text-gray-500">Published Book</span>
+              )}
+            </motion.a>
+          ))}
+        </div>
+       
+      </div>
+    </div>
+  );
+}

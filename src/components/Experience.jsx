@@ -6,75 +6,55 @@ import React, { useState } from "react";
 const Experiences = [
   {
     number: "01",
-    description1: "Elite Boarding School Admissions Coaching",
+    description1: "Boarding Admissions",
     description2:
-      " Specialized in guiding students through the rigorous application process for top Indian boarding schools, focusing on entrance exampreparation, interview coaching, and personality development",
+      " Ranked among the top search results, thanks to strategic keyword research and SEO-powered blog content that brought consistent traffic.",
   },
 
   {
     number: "02",
-    description1: "Personalized One-on-One Exam Coaching for Success",
+    description1: "Go Solar",
     description2:
-      " Conduct one - on - one coaching sessions, providing personalized study plans and strategies for excelling in competitive exams.",
+      " Improved social media engagement by 60%, grew followers organically, and amplified brand credibility with myth-busting reels and enhanced website presence with keyword-driven content writing in Hindi and English.",
   },
 
   {
     number: "03",
-    description1: "Interactive Learning Modules for Exam and Interview Mastery",
+    description1: "JSR Group Hotels",
     description2:
-      " Develop interactive learning materials that simulate real exam conditions and interview settings",
+      " Helped shape their brand identity online by aligning each caption and post with the service essence, crafting unique strategies and content.",
   },
 
   {
     number: "04",
-    description1:
-      "Comprehensive Application Support: Personal Statements & Portfolios",
+    description1: "Shaadivyah",
     description2:
-      "Offer guidance on personal statement writing, portfolio creation, and other aspects of the school application process.",
+      " Increased audience engagement through relatable, trend-aligned content and an emotional brand voice that resonated with the wedding audience.",
   },
 
   {
     number: "05",
-    description1:
-      "Expert Mentorship for Admissions to Premier Indian Boarding Schools",
+    description1: "Go Edu",
     description2:
-      "Mentored students aiming for schools like Welham Girls' School, Mayo College, Scindia Kanya Vidyalaya, The Doon School, and more.",
+      " Built a voice of trust and expertise in the education sector with storytelling-led blogs and reels, driving both traffic and inquiries.",
   },
 ];
 
 const Experience = () => {
-
   return (
     <div className="bg-[#F3EDE6]">
       <div className="flex flex-col justify-center items-center pt-16 pb-14">
-        <h1 className="lg:text-[40px] text-[20px] text-[#A14622] font-tienne ">Professional Experience</h1>
+        <h1 className="lg:text-[40px] text-[20px] text-[#A14622] font-tienne ">
+          How My Strategies Drive Real Impact
+        </h1>
 
         <Image
-            src="/line.svg"
-            className="w-[213px] h-10"
-            width={1000}
-            height={1000}
-            alt=""
-          />
-      </div>
-
-      <div className="flex flex-row items-center pb-20">
-        <div className="bg-[#A14622] lg:w-[260px] w-[100px] lg:h-[200px] h-[81px] lg:p-16 p-6">
-          <Image
-            src="/Teacher.svg"
-            className="lg:w-[83px] lg:h-[83px] w-[38px] h-[38px]"
-            width={1000}
-            height={1000}
-            alt=""
-          />
-        </div>
-
-        <div className="lg:w-[1000px] w-[215px] lg:pl-20 pl-10">
-          <h1 className="lg:text-[40px] text-[20px] text-[#000000] font-bold">
-            Online Educator & Boarding School Admission Mentor
-          </h1>
-          
-        </div>
+          src="/line.svg"
+          className="w-[213px] h-10"
+          width={1000}
+          height={1000}
+          alt=""
+        />
       </div>
 
       <div className=" bg-[#F3EDE6] pb-16 ">
@@ -82,13 +62,12 @@ const Experience = () => {
           <div
             className={`lg:flex lg:justify-between border-2 border-black group border-t border-b lg:p-20 lg:h-[340px] bg-[#F3EDE6] hover:bg-[#A14622] hover:text-white p-4  space-y-4`}
             key={index}
-            
           >
-            <h1 className="lg:text-[30px] text-[15px] font-bold">{Experience.number}</h1>
-            <p className="lg:w-[325px] w-full h-[40px] lg:h-[82px] lg:text-[25px] text-[15px] font-semibold">
+            <h1 className="lg:text-[30px] text-[15px] ">{Experience.number}</h1>
+            <p className="lg:w-[325px] w-full h-[40px] lg:h-[82px] lg:text-[25px] text-[15px] ">
               {Experience.description1}
             </p>
-            <p className="text-[#A14622] lg:text-[25px] text-[13px] lg:w-[540px] lg:h-[204px]  w-full  text-left group-hover:text-white">
+            <p className="text-[#A14622] lg:text-[20px] text-[15px] lg:w-[540px] lg:h-[204px]  w-full  text-left group-hover:text-white">
               {Experience.description2}
             </p>
           </div>

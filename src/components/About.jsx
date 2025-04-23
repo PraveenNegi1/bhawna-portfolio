@@ -1,59 +1,143 @@
-import Image from "next/image";
-import React from "react";
+"use client"
+
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+
+const SkillItem = ({ children, icon, delay }) => {
+  return (
+    <motion.li
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: delay * 0.1 }}
+      className="flex items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+    >
+      <span className="text-lg mr-2">{icon}</span>
+      <span className="text-gray-700">{children}</span>
+    </motion.li>
+  );
+};
+
+const SkillCard = ({ title, skills, iconType, delay }) => {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { 
+          opacity: 1, 
+          y: 0, 
+          transition: { duration: 0.6, delay: delay * 0.2 } 
+        }
+      }}
+      className="bg-gray-50 shadow-xl rounded-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-500"
+    >
+      <div className="bg-gradient-to-r from-[#A44924] to-[#c85e36] p-4 text-white">
+        <h3 className="text-[20px] ">{title}</h3>
+      </div>
+      <div className="p-6">
+        <ul className="space-y-3">
+          {skills.map((skill, index) => (
+            <SkillItem key={index} icon={iconType} delay={index + delay}>
+              {skill}
+            </SkillItem>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
+  );
+};
 
 const About = () => {
+  const titleControls = useAnimation();
+  const titleRef = useRef(null);
+  const isInView = useInView(titleRef, { once: true, amount: 0.3 });
+  
+  useEffect(() => {
+    if (isInView) {
+      titleControls.start("visible");
+    }
+  }, [titleControls, isInView]);
+  
+  const hardSkills = [
+    "SEO & SMO Strategy",
+    "Copywriting & Creative Content Writing",
+    "Website Content & Blogs",
+    "YouTube Content Strategy",
+    "Market & Keyword Research",
+    "Proofreading & Content Editing",
+    "Advanced Excel"
+  ];
+  
+  const softSkills = [
+    "Influential & Confident Communicator",
+    "Public Speaking & Storytelling",
+    "Calm Under Pressure",
+    "Convincing & Strategic Thinker",
+    "Team Leadership & Editorial Direction"
+  ];
+
   return (
-    <div>
-      <div className=" ">
-        <div className="flex flex-col justify-center items-center lg:space-y-6">
-          <h1 className="text-[#A14622] lg:text-2xl ">ABOUT ME</h1>
-          <p className="text-[#555555] font-tienne lg:w-[668px] w-[315px] h-[54px] lg:h-[54px] text-center lg:text-[36px] font-semibold">
-            Some core information about me
-          </p>
-
-          <Image
-            src="/line.svg"
-            className="w-[213px] h-10  object-cover"
-            width={1000}
-            height={1000}
-            alt=""
+    <section className="bg-gradient-to-b from-[#A44924] to-[#873d1e] py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          ref={titleRef}
+          initial="hidden"
+          animate={titleControls}
+          variants={{
+            hidden: { opacity: 0, y: -30 },
+            visible: { 
+              opacity: 1, 
+              y: 0,
+              transition: { duration: 0.8, ease: "easeOut" } 
+            }
+          }}
+          className="mb-16 text-center"
+        >
+          <h2 className="lg:text-[40px] text-[20px] text-3xl font-bold text-white mb-4">
+            What I Do Best
+          </h2>
+          <div className="w-24 h-1 bg-white mx-auto rounded-full"></div>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 md:text-[20px] text-[15px]">
+          <SkillCard 
+            title="Hard Skills" 
+            skills={hardSkills} 
+            delay={0} 
+          />
+          <SkillCard 
+            title="Soft Skills" 
+            skills={softSkills} 
+            delay={1} 
           />
         </div>
-
-        <div className="lg:mt-16 mt-8 bg-[#A14622] py-1 ">
-          <Image
-            src="/video.svg"
-            className="lg:w-full w-[415px] lg:h-[550px] h-[144px]"
-            width={1000}
-            height={1000}
-            alt=""
-          />
-        </div>
-
-        {/* <div className="lg:mt-16 mt-8 bg-[#A14622] py-1">
-          <video
-            className="lg:w-full w-[415px] lg:h-[550px] h-[144px]"
-            controls
-            autoPlay
-            muted
-            loop
-          >
-            <source src="/video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div> */}
-
-        <p className="text-[#5F5F5F] lg:px-40 px-8 text-left  lg:text-[24px]  lg:my-20 my-8 font-manrope ">
-          After transitioning from a background in physiotherapy, I&apos;ve
-          dedicated myself to helping young learners navigate the competitive
-          entrance processes for renowned institutions like Welham Girls&apos;
-          School, Mayo College, Scindia Kanya Vidyalaya, The Doon School, and
-          others. My goal is to guide students toward academic success while
-          fostering their personal growth, helping them stand out in competitive
-          entrance exams, interviews, and overall school applications.
-        </p>
       </div>
-    </div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ delay: 0.5, duration: 1 }}
+        className="absolute top-40 right-10 w-40 h-40 rounded-full bg-white hidden lg:block "
+      ></motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="absolute bottom-20 left-10 w-64 h-64 rounded-full bg-white hidden lg:block"
+      ></motion.div>
+    </section>
   );
 };
 
