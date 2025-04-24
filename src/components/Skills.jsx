@@ -79,7 +79,7 @@ const Projects = () => {
       description: "I took charge of social media content, curating posts for their stay, café, and salon verticals, reflecting a consistent tone and aesthetic across platforms."
     }
   ];
-
+   
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 py-20 px-4 md:px-10 lg:px-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
@@ -97,7 +97,7 @@ const Projects = () => {
           }}
         >
           <h2 className="lg:text-[40px] text-[20px] text-center text-[#A44924] mb-3">
-            Projects I've Worked On
+            Projects I have Worked On
           </h2>
           <div className="w-24 h-1 bg-[#A44924] mx-auto mb-10 rounded-full"></div>
         </motion.div>
