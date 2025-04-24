@@ -10,7 +10,7 @@ const Home = () => {
       >
         <div className="lg:w-[570px]  font-tienne lg:pt-0 pt-20 px-14  lg:px-0 py-5 lg:py-0">
           <span className="text-[#FFFFFF] uppercase lg:text-[48px] text-[30px]">
-          Hello, I'm
+          Hello, I&apos;m
           </span>
           <br />
           <span className="text-[#FFFFFF] capitalize lg:text-[48px] text-[30px] py-5 lg:py-0 ">

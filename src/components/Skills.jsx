@@ -118,7 +118,7 @@ const Projects = () => {
         >
           <p className="text-[15px] md:text-[20px] text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
             Over the past <span className="text-[#A44924] font-semibold">3+ years</span>,
-            I've worked across diverse industries, creating strategic,
+            I&apos;ve worked across diverse industries, creating strategic,
             SEO-optimized content and managing digital platforms.
           </p>
         </motion.div>
